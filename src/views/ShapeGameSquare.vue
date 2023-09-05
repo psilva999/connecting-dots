@@ -12,7 +12,7 @@ import shapeGameSquareBg from "../assets/images/shapeGameSquareBg.png";
 import BackButton from "../components/BackButton.vue";
 import HomeButton from "../components/HomeButton.vue";
 
-const pageRoute = ref("/shape");
+const pageRoute = ref("/connecting-dots/shape");
 
 let dots = [];
 let guideDots = [];

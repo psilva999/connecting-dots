@@ -7,10 +7,10 @@ import pictureShapes from '../assets/images/pictureShapes.png';
 import animalPicture from '../assets/images/animalPicture.png';
 import { useRouter } from "vue-router";
 
-const pageRoute = ref('/');
+const pageRoute = ref('/connecting-dots/');
 const router = useRouter();
 
-const goToShapeGameOptions = () => router.push("/shape");
+const goToShapeGameOptions = () => router.push("/connecting-dots/shape");
 
 </script>
 

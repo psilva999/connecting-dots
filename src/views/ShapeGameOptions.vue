@@ -27,7 +27,7 @@ const startGame = (shapeGame)  => router.push(`${shapeGame}`);
     <BackButton :name="pageRoute" />
     <HomeButton />
     <div class="shape__clouds-1">
-        <img @click="startGame('/square')" class="shape__cloud" :src="cloud1" alt="Desafio 1 do jogo de ligar pontos com formas.">
+        <img @click="startGame('/connecting-dots/square')" class="shape__cloud" :src="cloud1" alt="Desafio 1 do jogo de ligar pontos com formas.">
         <img class="shape__cloud" :src="cloud2" alt="Desafio 2 do jogo de ligar pontos com formas.">
         <img class="shape__cloud" :src="cloud3" alt="Desafio 3 do jogo de ligar pontos com formas.">
         <img class="shape__cloud" :src="cloud4" alt="Desafio 4 do jogo de ligar pontos com formas.">

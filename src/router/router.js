@@ -5,22 +5,22 @@ const lazyLoad = (view) => import(`../views/${view}.vue`);
 
 const routes = [
     {
-        path: '/',
+        path: '/connecting-dots',
         name: 'Home',
         component: Home,
     },
     {
-        path: '/modes',
+        path: '/connecting-dots/modes',
         name: 'Game-Modes',
         component: lazyLoad('GameModes'),
     },
     {
-        path: '/shape',
+        path: '/connecting-dots/shape',
         name: 'ShapeGame-Options',
         component: lazyLoad('ShapeGameOptions'),
     },
     {
-        path: '/square',
+        path: '/connecting-dots/square',
         name: 'ShapeGame-Square',
         component: lazyLoad('ShapeGameSquare'),
     },
