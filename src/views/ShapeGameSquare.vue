@@ -2,11 +2,26 @@
   <div class="square" :style="{ backgroundImage: `url(${shapeGameSquareBg})` }">
     <BackButton :name="pageRoute" />
     <HomeButton />
-    <canvas id="dots"></canvas>
+    <canvas id="dots" class="desenho"></canvas>
+
+    <section class="muito-bem">
+      <article>
+        <img :src="Gatinho" alt="Gatinho">
+      </article>
+
+      <div>
+        <img :src="MuitoBem" alt="Muito Bem">
+        <img :src="Proxima" alt="Seta">
+      </div>
+    </section>
   </div>
 </template>
 
 <script setup>
+import Gatinho from '../assets/images/0-smile.jpeg'
+import MuitoBem from '../assets/images/2-muito-bem.jpeg'
+import Proxima from '../assets/images/1-proxima.jpeg'
+
 import { onMounted, ref } from "vue";
 import shapeGameSquareBg from "../assets/images/shapeGameSquareBg.png";
 import BackButton from "../components/BackButton.vue";
@@ -25,7 +40,7 @@ let dotSize = 12;
 
 const guidePoints = [
   { x: 21, y: 25 },
-  { x: 400, y: 34 },
+  { x: 400, y: 25 },
   { x: 400, y: 390 },
   { x: 23, y: 390 },
 ];
@@ -94,24 +109,27 @@ onMounted(() => {
       }
     }
 
-    if (currentIndex == 0) {
-      // Configurações de estilo para texto
+    if (currentIndex === 0) {
       context.fillStyle = "rgb(226, 126, 110)";
-      context.strokeStyle = "rgb(222, 222, 222)";
+      context.strokeStyle = "#E27E6E";
       context.lineWidth = 2;
       context.font = "24px Arial";
-    } else if (!drawingCompleted) {
+    } 
+    
+    else if (!drawingCompleted) {
       context.strokeStyle = "rgb(226, 126, 110)";
-      context.lineWidth = 2; // Especifique a largura da linha aqui
+      context.lineWidth = 5;
       context.beginPath();
       context.moveTo(lastPos.x, lastPos.y);
       context.lineTo(currentPos.x, currentPos.y);
       context.stroke();
-    } else {
+    } 
+    
+    else {
       fillVertex(context);
       context.fillStyle = "rgb(226, 126, 110)";
       context.strokeStyle = "rgb(222, 222, 222)";
-      context.lineWidth = 5; // Especifique a largura da linha aqui
+      context.lineWidth = 10;
     }
 
     requestAnimationFrame(draw);
@@ -132,12 +150,20 @@ onMounted(() => {
 
   function mousePressed() {
     if (!drawingCompleted && guideDots[currentIndex].within(currentPos.x, currentPos.y)) {
-      dots.push(new Dot(currentPos.x, currentPos.y, "rgb(120, 120, 120)"));
+      dots.push(new Dot(currentPos.x, currentPos.y, "#E27E6E"));
       currentIndex++;
       lastPos.x = currentPos.x;
       lastPos.y = currentPos.y;
+
       if (currentIndex === guideDots.length) {
+        dots.push(new Dot(guideDots[0].x, guideDots[0].y, "#E27E6E"));
+        document.querySelector('.muito-bem').classList.add('active')
         drawingCompleted = true;
+      }
+
+      if (currentIndex > guideDots.length) {
+         
+        
       }
     }
   }
@@ -162,5 +188,66 @@ onMounted(() => {
   height: 430px;
   position: relative;
   top: 3.3rem;
+}
+
+/* .desenho.active {
+  background:red;
+} */
+
+.muito-bem {
+  position:absolute;
+  top:6rem;
+  width:100vw;
+  margin:auto;
+  left:0;
+  display:none;
+  z-index:1000;
+  place-items:center;
+  height:max-content;
+}
+
+.muito-bem.active {
+  display:grid;
+  animation:just-appear .3s linear forwards;
+}
+
+.muito-bem img {
+  object-fit:cover;
+}
+.muito-bem article img {
+  width:28rem;
+  height:25rem;
+  border-radius:.5rem;
+}
+
+.muito-bem div {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:580px;
+  position:relative;
+  left:4rem;
+  top:-1rem;
+}
+
+.muito-bem div img:first-child {
+  width:29rem;
+}
+
+.muito-bem div img:last-child {
+  cursor:pointer;
+  border-radius:1rem;
+}
+
+@keyframes just-appear {
+  from {
+    opacity:0;
+    transform:translateY(-2rem);
+  }
+
+  to {
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 </style>
