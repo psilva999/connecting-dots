@@ -5,7 +5,7 @@ const lazyLoad = (view) => import(`../views/${view}.vue`);
 
 const routes = [
     {
-        path: '/connecting-dots',
+        path: '/connecting-dots/',
         name: 'Home',
         component: Home,
     },
