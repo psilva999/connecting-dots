@@ -15,7 +15,7 @@ import cloud9 from '../assets/images/cloud9.png';
 import cloud10 from '../assets/images/cloud10.png';
 import { useRouter } from "vue-router";
 
-const pageRoute = ref('/modes');
+const pageRoute = ref('/connecting-dots/modes');
 const router = useRouter();
 
 const startGame = (shapeGame)  => router.push(`${shapeGame}`);
