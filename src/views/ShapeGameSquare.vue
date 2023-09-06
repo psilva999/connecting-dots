@@ -207,12 +207,12 @@ onMounted(() => {
 
 .muito-bem {
   position:absolute;
-  top:0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width:80vw;
   margin:auto;
-  background:red;
   margin:auto;
-  left:0;
   display:none;
   z-index:1000;
   place-items:center;
