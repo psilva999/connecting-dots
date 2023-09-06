@@ -236,7 +236,7 @@ onMounted(() => {
 
 .muito-bem article img {
   width:28rem;
-  height:25rem;
+  height:27rem;
   border-radius:.5rem; 
   animation:gato-loko 8s linear infinite; 
 }
@@ -259,6 +259,12 @@ onMounted(() => {
 .muito-bem div img:last-child {
   cursor:pointer;
   border-radius:1rem;
+  transition:.2s;
+}
+
+.muito-bem div img:last-child:hover {
+  transform:scale(1.1);
+  transition:.2s;
 }
 
 @keyframes just-appear {
