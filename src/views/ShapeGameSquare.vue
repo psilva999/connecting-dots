@@ -245,15 +245,15 @@ onMounted(() => {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  width:580px;
+  width:600px;
   position:relative;
-  left:3.7rem;
-  top:-1rem;
+  left:3.4rem;
+  top:-.5rem;
   animation:from-bottom .3s linear forwards;
 }
 
 .muito-bem div img:first-child {
-  width:29rem;
+  width:31rem;
 }
 
 .muito-bem div img:last-child {
