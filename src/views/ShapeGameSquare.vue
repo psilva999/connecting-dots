@@ -4,20 +4,31 @@
     <HomeButton />
     <canvas id="dots" class="desenho"></canvas>
 
-    <section class="muito-bem">
-      <article>
-        <img :src="Gatinho" alt="Gatinho">
-      </article>
 
-      <div>
-        <img :src="MuitoBem" alt="Muito Bem">
-        <img :src="Proxima" alt="Seta">
-      </div>
-    </section>
+
+    <main class="muito-bem">
+      <section>
+        <article>
+          <img :src="Gatinho" alt="Gatinho">
+        </article>
+
+        <div>
+          <img :src="MuitoBem" alt="Muito Bem">
+          <img :src="Proxima" @click='voltaPraHome' alt="Seta">
+        </div>
+
+      </section>
+    </main>
+
   </div>
 </template>
 
 <script setup>
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const voltaPraHome = () => router.push("/connecting-dots/");
+
 import Gatinho from '../assets/images/0-smile.jpeg'
 import MuitoBem from '../assets/images/2-muito-bem.jpeg'
 import Proxima from '../assets/images/1-proxima.jpeg'
@@ -196,28 +207,38 @@ onMounted(() => {
 
 .muito-bem {
   position:absolute;
-  top:6rem;
+  top:0;
   width:100vw;
   margin:auto;
   left:0;
   display:none;
   z-index:1000;
   place-items:center;
-  height:max-content;
+  height:100vh;
 }
 
 .muito-bem.active {
   display:grid;
-  animation:just-appear .3s linear forwards;
+}
+
+.muito-bem section {
+  display:grid;
+  place-items:center;
 }
 
 .muito-bem img {
   object-fit:cover;
 }
+
+.muito-bem article {
+  animation:just-appear .3s linear forwards;
+}
+
 .muito-bem article img {
   width:28rem;
   height:25rem;
-  border-radius:.5rem;
+  border-radius:.5rem; 
+  animation:gato-loko 8s linear infinite; 
 }
 
 .muito-bem div {
@@ -226,8 +247,9 @@ onMounted(() => {
   align-items:center;
   width:580px;
   position:relative;
-  left:4rem;
+  left:3.7rem;
   top:-1rem;
+  animation:from-bottom .3s linear forwards;
 }
 
 .muito-bem div img:first-child {
@@ -248,6 +270,40 @@ onMounted(() => {
   to {
     opacity:1;
     transform:translateY(0);
+  }
+}
+
+@keyframes from-bottom {
+  from {
+    opacity:0;
+    transform:translateY(2rem);
+  }
+
+  to {
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes gato-loko {
+  0% {
+    border-radius:8.5rem 0 0 0;
+  }
+
+  25% {
+    border-radius:4rem 7rem 0 0;
+  }
+
+  50% {
+    border-radius:6rem 4rem 0 0;
+  }
+
+  75% {
+    border-radius:4rem 3rem 0 0;
+  }
+
+  100% {
+    border-radius:8.5rem 0 0 0;
   }
 }
 </style>

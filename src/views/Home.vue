@@ -1,6 +1,7 @@
 <script setup>
 import homeImage from '../assets/images/home.png'
 import startImage from '../assets/images/startButton.png'
+
 import HomeButton from '../components/HomeButton.vue'
 import { useRouter } from "vue-router";
 
