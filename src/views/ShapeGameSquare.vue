@@ -208,7 +208,9 @@ onMounted(() => {
 .muito-bem {
   position:absolute;
   top:0;
-  width:100vw;
+  width:80vw;
+  margin:auto;
+  background:red;
   margin:auto;
   left:0;
   display:none;
@@ -238,7 +240,6 @@ onMounted(() => {
   width:28rem;
   height:27rem;
   border-radius:.5rem; 
-  animation:gato-loko 8s linear infinite; 
 }
 
 .muito-bem div {
@@ -288,28 +289,6 @@ onMounted(() => {
   to {
     opacity:1;
     transform:translateY(0);
-  }
-}
-
-@keyframes gato-loko {
-  0% {
-    border-radius:8.5rem 0 0 0;
-  }
-
-  25% {
-    border-radius:4rem 7rem 0 0;
-  }
-
-  50% {
-    border-radius:6rem 4rem 0 0;
-  }
-
-  75% {
-    border-radius:4rem 3rem 0 0;
-  }
-
-  100% {
-    border-radius:8.5rem 0 0 0;
   }
 }
 </style>
